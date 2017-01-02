@@ -1,0 +1,13 @@
+{
+  "generator-jhipster": {
+    "appsFolders": [
+      "account-service",
+      "gateway"
+    ],
+    "directoryPath": "../",
+    "monitoring": "prometheus",
+    "serviceDiscoveryType": "eureka",
+    "adminPassword": "admin",
+    "jwtSecretKey": "390d0169241cf2e8e83b1d53e684987d42e904a5"
+  }
+}

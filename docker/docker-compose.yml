@@ -1,0 +1,72 @@
+version: '2'
+services:
+    accountservice-app:
+        image: accountservice
+        external_links:
+            - accountservice-mysql:mysql
+            - jhipster-registry:registry
+        environment:
+            - SPRING_PROFILES_ACTIVE=prod,swagger
+            - SPRING_CLOUD_CONFIG_URI=http://admin:admin@registry:8761/config
+            - SPRING_DATASOURCE_URL=jdbc:mysql://mysql:3306/accountservice?useUnicode=true&characterEncoding=utf8&useSSL=false
+            - JHIPSTER_SLEEP=10
+            - JHIPSTER_METRICS_PROMETHEUS_ENABLED=true
+            - JHIPSTER_METRICS_PROMETHEUS_ENDPOINT=/prometheusMetrics
+    accountservice-mysql:
+        container_name: accountservice-mysql
+        image: mysql:5.7.13
+        environment:
+            - MYSQL_USER=root
+            - MYSQL_ALLOW_EMPTY_PASSWORD=yes
+            - MYSQL_DATABASE=accountservice
+        command: mysqld --lower_case_table_names=1 --skip-ssl
+    
+    gateway-app:
+        image: gateway
+        external_links:
+            - gateway-mysql:mysql
+            - jhipster-registry:registry
+        environment:
+            - SPRING_PROFILES_ACTIVE=prod,swagger
+            - SPRING_CLOUD_CONFIG_URI=http://admin:admin@registry:8761/config
+            - SPRING_DATASOURCE_URL=jdbc:mysql://mysql:3306/gateway?useUnicode=true&characterEncoding=utf8&useSSL=false
+            - SPRING_DATA_CASSANDRA_CONTACTPOINTS=cassandra
+            - JHIPSTER_SLEEP=30
+            - JHIPSTER_METRICS_PROMETHEUS_ENABLED=true
+            - JHIPSTER_METRICS_PROMETHEUS_ENDPOINT=/prometheusMetrics
+        ports:
+            - 8080:8080
+    gateway-mysql:
+        container_name: gateway-mysql
+        image: mysql:5.7.13
+        environment:
+            - MYSQL_USER=root
+            - MYSQL_ALLOW_EMPTY_PASSWORD=yes
+            - MYSQL_DATABASE=gateway
+        command: mysqld --lower_case_table_names=1 --skip-ssl
+    
+    jhipster-registry:
+        extends:
+            file: jhipster-registry.yml
+            service: jhipster-registry
+
+
+    prometheus:
+        extends:
+            file: prometheus.yml
+            service: prometheus
+
+    alertmanager:
+        extends:
+            file: prometheus.yml
+            service: alertmanager
+
+    grafana:
+        extends:
+            file: prometheus.yml
+            service: grafana
+
+volumes:
+    prometheus_data: {}
+    grafana_data: {}
+
