@@ -1,0 +1,40 @@
+entity PersonalBankAccount {
+	owner String required,
+	name String required maxlength(100),
+    number String required ,
+    code String required
+}
+
+entity Transfer {
+	ambount BigDecimal required,
+    side Side required,
+    number String required,
+    code String required,
+    transactionDate ZonedDateTime required
+}
+
+entity Tag {
+	owner String,
+	name String required,
+    color String required
+}
+
+enum Side {
+	FROM, TO
+}
+
+relationship OneToMany {
+	PersonalBankAccount{transfers} to Transfer
+}
+
+relationship ManyToOne {
+	Transfer{tag} to Tag
+}
+
+paginate Transfer with infinite-scroll
+
+dto * with mapstruct
+
+service all with serviceImpl 
+
+microservice PersonalBankAccount, Transfer, Side, Tag with account-service
