@@ -1,0 +1,32 @@
+{
+    "gatewayApp": {
+        "transfer" : {
+            "home": {
+                "title": "Transfers",
+                "createLabel": "Create a new Transfer",
+                "createOrEditLabel": "Create or edit a Transfer",
+                "search": "Search for Transfer"
+            },
+            "delete": {
+                "question": "Are you sure you want to delete Transfer {{ id }}?"
+            },
+            "detail": {
+                "title": "Transfer"
+            },
+            "ambount": "Ambount",
+            "side": "Side",
+            "number": "Number",
+            "code": "Code",
+            "transactionDate": "Transaction Date",
+            "personalBankAccount": "Personal Bank Account",
+            "tag": "Tag"
+        }
+    },
+    "accountServiceApp": {
+        "transfer" : {
+            "created": "A new Transfer is created with identifier {{ param }}",
+            "updated": "A Transfer is updated with identifier {{ param }}",
+            "deleted": "A Transfer is deleted with identifier {{ param }}"
+        }
+    }
+}

@@ -1,0 +1,32 @@
+{
+    "gatewayApp": {
+        "transfer" : {
+            "home": {
+                "title": "Transfers",
+                "createLabel": "Vytvořit Transfer",
+                "createOrEditLabel": "Vytvořit nebo upravit Transfer",
+                "search": "Vyhledat Transfer"
+            },
+            "delete": {
+                "question": "Jste si jisti, že chcete smazat Transfer {{ id }}?"
+            },
+            "detail": {
+                "title": "Transfer"
+            },
+            "ambount": "Ambount",
+            "side": "Side",
+            "number": "Number",
+            "code": "Code",
+            "transactionDate": "Transaction Date",
+            "personalBankAccount": "Personal Bank Account",
+            "tag": "Tag"
+        }
+    },
+    "accountServiceApp": {
+        "transfer" : {
+            "created": "Byl vytvořen potomek entity Transfer s identifikátorem {{ param }}",
+            "updated": "Potomek entity Transfer s identifikátorem {{ param }} byl upravený.",
+            "deleted": "Potomek entity Transfer s identifikátorem {{ param }} bol smazaný."
+        }
+    }
+}

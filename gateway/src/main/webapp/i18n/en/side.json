@@ -1,0 +1,9 @@
+{
+    "gatewayApp": {
+        "Side" : {
+            "null": "",
+            "FROM": "FROM",
+            "TO": "TO"
+        }
+    }
+}

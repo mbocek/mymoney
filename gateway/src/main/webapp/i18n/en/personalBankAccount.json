@@ -1,0 +1,30 @@
+{
+    "gatewayApp": {
+        "personalBankAccount" : {
+            "home": {
+                "title": "Personal Bank Accounts",
+                "createLabel": "Create a new Personal Bank Account",
+                "createOrEditLabel": "Create or edit a Personal Bank Account",
+                "search": "Search for Personal Bank Account"
+            },
+            "delete": {
+                "question": "Are you sure you want to delete Personal Bank Account {{ id }}?"
+            },
+            "detail": {
+                "title": "Personal Bank Account"
+            },
+            "owner": "Owner",
+            "name": "Name",
+            "number": "Number",
+            "code": "Code",
+            "transfers": "Transfers"
+        }
+    },
+    "accountServiceApp": {
+        "personalBankAccount" : {
+            "created": "A new Personal Bank Account is created with identifier {{ param }}",
+            "updated": "A Personal Bank Account is updated with identifier {{ param }}",
+            "deleted": "A Personal Bank Account is deleted with identifier {{ param }}"
+        }
+    }
+}

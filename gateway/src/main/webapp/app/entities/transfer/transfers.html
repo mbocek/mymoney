@@ -1,0 +1,72 @@
+<div>
+    <h2 data-translate="gatewayApp.transfer.home.title">Transfers</h2>
+    <jhi-alert></jhi-alert>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-4 no-padding-left">
+                <button class="btn btn-primary" ui-sref="transfer.new" >
+                    <span class="glyphicon glyphicon-plus"></span>
+                    <span  data-translate="gatewayApp.transfer.home.createLabel">
+                        Create new Transfer
+                    </span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive">
+        <table class="jh-table table table-striped">
+            <thead>
+                <tr jh-sort="vm.predicate" ascending="vm.reverse" callback="vm.reset()">
+                    <th jh-sort-by="id"><span data-translate="global.field.id">ID</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="ambount"><span data-translate="gatewayApp.transfer.ambount">Ambount</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="side"><span data-translate="gatewayApp.transfer.side">Side</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="number"><span data-translate="gatewayApp.transfer.number">Number</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="code"><span data-translate="gatewayApp.transfer.code">Code</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="transactionDate"><span data-translate="gatewayApp.transfer.transactionDate">Transaction Date</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="personalBankAccountId"><span data-translate="gatewayApp.transfer.personalBankAccount">Personal Bank Account</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="tagId"><span data-translate="gatewayApp.transfer.tag">Tag</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody infinite-scroll="vm.loadPage(vm.page + 1)" infinite-scroll-disabled="vm.page >= vm.links['last']">
+                <tr ng-repeat="transfer in vm.transfers track by transfer.id">
+                    <td><a ui-sref="transfer-detail({id:transfer.id})">{{transfer.id}}</a></td>
+                    <td>{{transfer.ambount}}</td>
+                    <td data-translate="{{'gatewayApp.Side.' + transfer.side}}">{{transfer.side}}</td>
+                    <td>{{transfer.number}}</td>
+                    <td>{{transfer.code}}</td>
+                    <td>{{transfer.transactionDate | date:'medium'}}</td>
+                    <td>
+                        <a ui-sref="personal-bank-account-detail({id:transfer.personalBankAccountId})">{{transfer.personalBankAccountId}}</a>
+                    </td>
+                    <td>
+                        <a ui-sref="tag-detail({id:transfer.tagId})">{{transfer.tagId}}</a>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group flex-btn-group-container">
+                            <button type="submit"
+                                    ui-sref="transfer-detail({id:transfer.id})"
+                                    class="btn btn-info btn-sm">
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                                <span class="hidden-xs hidden-sm" data-translate="entity.action.view"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="transfer.edit({id:transfer.id})"
+                                    class="btn btn-primary btn-sm">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                                <span class="hidden-xs hidden-sm" data-translate="entity.action.edit"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="transfer.delete({id:transfer.id})"
+                                    class="btn btn-danger btn-sm">
+                                <span class="glyphicon glyphicon-remove-circle"></span>
+                                <span class="hidden-xs hidden-sm" data-translate="entity.action.delete"></span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

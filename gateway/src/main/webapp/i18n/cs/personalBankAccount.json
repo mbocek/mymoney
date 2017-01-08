@@ -1,0 +1,30 @@
+{
+    "gatewayApp": {
+        "personalBankAccount" : {
+            "home": {
+                "title": "Personal Bank Accounts",
+                "createLabel": "Vytvořit Personal Bank Account",
+                "createOrEditLabel": "Vytvořit nebo upravit Personal Bank Account",
+                "search": "Vyhledat Personal Bank Account"
+            },
+            "delete": {
+                "question": "Jste si jisti, že chcete smazat Personal Bank Account {{ id }}?"
+            },
+            "detail": {
+                "title": "Personal Bank Account"
+            },
+            "owner": "Owner",
+            "name": "Name",
+            "number": "Number",
+            "code": "Code",
+            "transfers": "Transfers"
+        }
+    },
+    "accountServiceApp": {
+        "personalBankAccount" : {
+            "created": "Byl vytvořen potomek entity Personal Bank Account s identifikátorem {{ param }}",
+            "updated": "Potomek entity Personal Bank Account s identifikátorem {{ param }} byl upravený.",
+            "deleted": "Potomek entity Personal Bank Account s identifikátorem {{ param }} bol smazaný."
+        }
+    }
+}
